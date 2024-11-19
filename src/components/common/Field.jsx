@@ -1,6 +1,6 @@
 import React from "react";
 
-const Field = ({ label, children, htmlFor, errors }) => {
+const Field = ({ label, children, htmlFor, error }) => {
   const id = htmlFor || getChildId(children);
 
   return (
@@ -11,9 +11,9 @@ const Field = ({ label, children, htmlFor, errors }) => {
         </label>
       )}
       {children}
-      {!!errors && (
+      {!!error && (
         <div role="alert" className="text-red-500">
-          {errors.message}
+          {error.message}
         </div>
       )}
     </div>

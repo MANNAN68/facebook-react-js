@@ -1,7 +1,14 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Home = () => {
-  return <div>Home</div>;
+  const { auth } = useAuth();
+  console.log(auth);
+  return (
+    <>
+      <Link to="/me">Profile page</Link>
+    </>
+  );
 };
 
 export default Home;
