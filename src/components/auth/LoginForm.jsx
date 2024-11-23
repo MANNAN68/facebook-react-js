@@ -26,24 +26,20 @@ const LoginForm = () => {
       if (response.status === 200) {
         const { token, user } = response.data;
         if (token) {
-          const authToken = token.authToken;
+          const authToken = token.token;
           const refreshToken = token.refreshToken;
 
-          console.log("auth token", authToken);
-
+          console.log(`Login time auth token: ${authToken}`);
           setAuth({ user, authToken, refreshToken });
-          navigate("/"); // Redirect to the home page
+
+          navigate("/");
         }
       }
     } catch (error) {
-      if (error.response) {
-        const { status, data } = error.response;
-        console.error(`API Error (${status}):`, data);
-      }
-
+      console.error(error);
       setError("root.random", {
         type: "random",
-        message: `User email ${formData.email} not found`,
+        message: `User with email ${formData.email} is not found`,
       });
     }
   };
