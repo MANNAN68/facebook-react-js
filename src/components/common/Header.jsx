@@ -2,7 +2,6 @@ import React from "react";
 import home from "../../assets/icons/home.svg";
 import logo from "../../assets/images/logo.svg";
 import notification from "../../assets/icons/notification.svg";
-import avater from "../../assets/images/avatars/avatar_1.png";
 import Logout from "./Logout";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
@@ -40,7 +39,7 @@ const Header = () => {
                 {user?.firstName}
               </span>
               <img
-                className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px]"
+                className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px] rounded-full"
                 src={`${import.meta.env.VITE_BASE_URL}/${user?.avatar}`}
                 alt="profile"
               />

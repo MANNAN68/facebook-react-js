@@ -3,6 +3,8 @@ import { useAuth } from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 import { useProfile } from "../hooks/useProfile";
 import { actions } from "../actions";
+import MyPost from "../components/profile/MyPost";
+import ProfileInfo from "../components/profile/ProfileInfo";
 
 const Profile = () => {
   const { state, dispatch } = useProfile();
@@ -41,10 +43,12 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      Welcome, {state?.user?.firstName} {state?.user?.lastName}
-      <p>You have {state?.posts.length} posts.</p>
-    </div>
+    <main className="mx-auto max-w-[1020px] py-8">
+      <div className="container">
+        <ProfileInfo />
+        <MyPost />
+      </div>
+    </main>
   );
 };
 
